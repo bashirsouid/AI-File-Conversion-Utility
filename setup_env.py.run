@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+# Step 1: Create a virtual environment
+def create_virtual_env():
+    env_name = 'venv'
+    if not os.path.exists(env_name):
+        os.system(f'{sys.executable} -m venv {env_name}')
+        print(f'Virtual environment "{env_name}" created.')
+    else:
+        print(f'Virtual environment "{env_name}" already exists.')
+
+# Step 2: Install dependencies from requirements.txt
+def install_dependencies():
+    env_name = 'venv'
+    requirements_file = 'requirements.txt'
+
+    if os.path.exists(requirements_file):
+        pip_path = os.path.join(env_name, 'bin', 'pip') if os.name != 'nt' else os.path.join(env_name, 'Scripts', 'pip')
+        os.system(f'"{pip_path}" install -r {requirements_file}')
+        print(f'Dependencies from "{requirements_file}" installed.')
+    else:
+        print(f'"{requirements_file}" not found. Please create the file and list your dependencies.')
+
+# Run the functions
+create_virtual_env()
+install_dependencies()
+
+# Activate the virtual environment
+print(f"Execute 'source ./venv/bin/activate' to activate the virtual environment.")
