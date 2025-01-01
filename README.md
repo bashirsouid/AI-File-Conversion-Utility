@@ -36,7 +36,7 @@ In development early. Not yet ready for usage. Ready to begin testing and bug fi
 - Whether or not the original files will be replaced, the converted files will be stored as `<original_filename>.converted.<original_extension>` or whatever suffix you specify in the `output_suffix` variable value.
 
 ## TODO
-[ ] Complete development for script & testing
-[ ] Support configurable recursive option
-[ ] Unit test suite
-[ ] Integration test suite
+- [ ] Complete development for script & testing
+- [ ] Support configurable recursive option
+- [ ] Unit test suite
+- [ ] Integration test suite
