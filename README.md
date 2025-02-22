@@ -30,8 +30,6 @@ I tried generating some unit tests and integration tests with AI but they aren't
 }
 ```
 
-Note: You will definetly want to include some text like `Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.` in the prompt, otherwise you will get a lot of extra text before/after from the AI model's reasoning self-talk.
-
 2. Run the script with a valid configuration file `modify --config ./config.json ./`.
 
 ## Config File Format
@@ -39,6 +37,21 @@ Note: You will definetly want to include some text like `Just return the final t
 - If the prompt-file is specified, then it will be used. Otherwise, it will use the prompt text.
 - If you replace the original files, a backup will be made for the originals with `.bak` appended to the filename.
 - Whether or not the original files will be replaced, the converted files will be stored as `<original_filename>.converted.<original_extension>` or whatever suffix you specify in the `output_suffix` variable value.
+
+## Tips:
+
+### Isolate file output
+You will definetly want to include some text like `Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.` in the prompt, otherwise you will get a lot of extra text before/after from the AI model's reasoning self-talk.
+
+If you are having a lot of issues with the LLM adding extra content, then try a prompt like this that repeats the instructions multiple times.
+
+```
+Go line by line of the file and capitalize all of the chracters.
+
+Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.
+Do NOT explain your thought proccess at ALL; just return the final file contents without repeating my input or explaining anything!
+I WANT YOU TO NOT RETURN ANYTHING MORE THAN THE FINAL FILE CONTENTS!
+```
 
 ## TODO
 - [ ] Complete development for script & testing
