@@ -43,7 +43,7 @@ I tried generating some unit tests and integration tests with AI but they aren't
 ### Isolate file output
 You will definetly want to include some text like `Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.` in the prompt, otherwise you will get a lot of extra text before/after from the AI model's reasoning self-talk.
 
-If you are having a lot of issues with the LLM adding extra content, then try a prompt like this that repeats the instructions multiple times.
+If you are having a lot of issues with the LLM adding extra content, then try a prompt like this that repeats the instructions multiple times. Unfortunately, the LLM providers themselves work very very hard to make models that think out loud so you can check their work. That is good for building user trust, but sucks for file conversion utilities.
 
 ```
 Go line by line of the file and capitalize all of the chracters.
