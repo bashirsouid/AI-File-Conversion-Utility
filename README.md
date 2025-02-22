@@ -26,11 +26,11 @@ I tried generating some unit tests and integration tests with AI but they aren't
     "output_suffix": ".converted",
     "replace_original": false,
     "prompt_file": null,
-    "prompt_text": "Return back the original file again with no changes. Just return the text by itself, do not include any additional commentary before or afterwards.",
+    "prompt_text": "Return back the original file again with no changes. Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.",
 }
 ```
 
-Note: You will definetly want to include some text like `Just return the text by itself, do not include any additional commentary before or afterwards.` in the prompt, otherwise you will get a lot of extra text before/after from the AI model's reasoning self-talk.
+Note: You will definetly want to include some text like `Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.` in the prompt, otherwise you will get a lot of extra text before/after from the AI model's reasoning self-talk.
 
 2. Run the script with a valid configuration file `modify --config ./config.json ./`.
 
