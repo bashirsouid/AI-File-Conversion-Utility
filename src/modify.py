@@ -60,9 +60,27 @@ def log_message(message):
     print(message)
 
 # Extract content inside triple backticks or fallback to full response
-def extract_content(content):
-    match = re.search(r"``````", content, re.DOTALL)
-    return match.group(1).strip() if match else content.strip()
+def extract_content(json_input):
+    """
+    Extracts content between triple backticks from a JSON string's message content.
+    Returns full message content if no triple backticks found.
+    """
+    # Handle both string and dict inputs
+    if isinstance(json_input, str):
+        data = json.loads(json_input)
+    else:
+        data = json_input
+        
+    content = data['choices'][0]['message']['content']
+    
+    # Improved regex pattern for triple backticks with optional language specifier
+    matches = re.findall(r'``````', content, re.DOTALL)
+    
+    if not matches:
+        return content.strip()
+    
+    # Clean extracted content
+    return '\n'.join([m.strip() for m in matches]).strip()
 
 # Process a single file
 def process_file(file_path, config, api_keys):
