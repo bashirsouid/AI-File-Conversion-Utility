@@ -110,10 +110,10 @@ def process_file(file_path, config, api_keys):
         "model": "llama-3.1-sonar-huge-128k-online",
         "temperature": 0,
         "messages": [
-            {"role": "user", "content": "I am going to give you a file to process and then a prompt with instructions for how to transform it. First I will give you the file to proccess, then I will give you the prompt with instructions in the subsequent message."},
+            {"role": "user", "content": "I am going to give you a file to process and then a prompt with instructions for how to transform it. First I will give you the file to proccess, then I will give you the prompt with instructions in the subsequent message. When you transform the file, you MUST only return only the final file's content without any additional text before or after with an explaination or showing your thought process. Just return the final file contents transformed according to the instructions."},
             {"role": "assistant", "content": "I understand. First, please provide the file to process."},
             {"role": "user", "content": file_content},
-            {"role": "assistant", "content": "Thank you for the file contents. Now please provide the prompt with instructions for how to transform the file."},
+            {"role": "assistant", "content": "Thank you for the file contents. Now please provide the prompt with instructions for how to transform the file. I promise to only return the final file contents without explaining my thought process or anything else."},
             {"role": "user", "content": config.get("prompt_text", "")}
         ],
     }
