@@ -26,7 +26,7 @@ I tried generating some unit tests and integration tests with AI but they aren't
     "output_suffix": ".converted",
     "replace_original": false,
     "prompt_file": null,
-    "prompt_text": "Return back the original file again with no changes. Just return the final text by itself; do NOT include any additional commentary or explaination before or afterwards.",
+    "prompt_text": "Go line by line and capitalize all of the letters on that line.",
 }
 ```
 
