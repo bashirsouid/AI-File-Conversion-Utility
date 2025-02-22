@@ -157,6 +157,11 @@ def main(target_directory, config):
     for root, _, files in os.walk(target_directory):
         for file in files:
             if file.endswith(config["file_extension"]):
+                # Extract base name without extension
+                base_name = os.path.splitext(file)[0]
+                # Skip files where base name ends with output_suffix
+                if base_name.endswith(config["output_suffix"]):
+                    continue
                 original_files.append(os.path.join(root, file))
 
     with ThreadPoolExecutor(max_workers=10) as executor:
