@@ -6,6 +6,8 @@ A command line utility written in Python that will recursively modify matching f
 
 In development early. Not yet ready for usage. Ready to begin testing and bug fixing.
 
+I tried generating some unit tests and integration tests with AI but they aren't good; I will have to write them from scratch later.
+
 ## Build Instructions
 - Startup a virtual environment with `setup_env.py.run`.
 - Activate the virtual environment with `source ./venv/bin/activate`.
@@ -27,7 +29,7 @@ In development early. Not yet ready for usage. Ready to begin testing and bug fi
     "prompt_text": "Return back the original file again with no changes.",
 }
 ```
-2. Run the script with a valid configuration file `modify -f ./config.json`.
+2. Run the script with a valid configuration file `modify --config ./config.json ./`.
 
 ## Config File Format
 - The `file_extension` field will specify which file extension should be used when searching for files in the directory tree to convert.
